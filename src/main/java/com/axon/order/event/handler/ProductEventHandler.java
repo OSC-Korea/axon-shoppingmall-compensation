@@ -33,7 +33,7 @@ public class ProductEventHandler {
     @EventHandler
     protected void on(ProductQuantityChangedEvent productQuantityChangedEvent) {
         ProductEntity productEntity = productRepository.findById(productQuantityChangedEvent.getProductId()).get();
-        log.info("---{}---{}", productEntity.getName(), productEntity.getQuentity());
+        log.info("[{}] quantity:{}", productEntity.getName(), productEntity.getQuentity());
         productEntity.setQuentity(productQuantityChangedEvent.getQuantity());
         productRepository.save(productEntity);
     }

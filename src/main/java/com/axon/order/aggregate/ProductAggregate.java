@@ -3,6 +3,7 @@ package com.axon.order.aggregate;
 import com.axon.order.command.ChangeQuantityCommand;
 import com.axon.order.command.CreateProductCommand;
 import com.axon.order.event.ProductCreatedEvent;
+import com.axon.order.event.ProductQuantityChangedEvent;
 import lombok.NoArgsConstructor;
 import org.axonframework.commandhandling.CommandHandler;
 import org.axonframework.eventsourcing.EventSourcingHandler;
@@ -36,7 +37,12 @@ public class ProductAggregate {
     @CommandHandler
     public void changeQuantity(ChangeQuantityCommand command) {
         if(this.quantiy < command.getQuantity()) throw new IllegalArgumentException("tfy ");
-        this.quantiy = command.getQuantity();
+        apply(new ProductQuantityChangedEvent(command.getProductId(), this.quantiy - command.getQuantity()));
+    }
+
+    @EventSourcingHandler
+    public void changeProductQuantity(ProductQuantityChangedEvent event) {
+        this.quantiy = event.getQuantity();
     }
 
 }
