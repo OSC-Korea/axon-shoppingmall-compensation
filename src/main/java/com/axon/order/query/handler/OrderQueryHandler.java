@@ -1,6 +1,7 @@
-package com.axon.order.query;
+package com.axon.order.query.handler;
 
 import com.axon.order.entity.OrderEntity;
+import com.axon.order.query.GetOrdersQuery;
 import com.axon.order.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -19,8 +20,6 @@ public class OrderQueryHandler {
     @QueryHandler
     protected List<OrderEntity> orderFindAll(GetOrdersQuery query) {
         log.info("---order query---");
-        List<OrderEntity> oes = orderRepository.findAll();
-        log.info("oes size:{}", oes.size());
         return orderRepository.findAll();
     }
 }
