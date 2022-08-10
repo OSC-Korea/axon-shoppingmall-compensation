@@ -1,8 +1,6 @@
 # Axon Framework 예제
-<hr />
 
 ## 0. 개요
-<hr />
 이 예제는 쇼핑몰 예제로 CQRS와 SAGA Pattern을 이용해 보상 트랜잭션을 발행하는 예제입니다.
 
 기능은 아래 4가지 기능이 있습니다.
@@ -13,7 +11,6 @@
 4. 개수가 부족하면 주문 상태를 CANCELED로 바꾸는 기능
 
 ## API
-<hr />
 1. GET /product - 등록한 제품(product)을 조회합니다.
 
 2. GET /order - 등록한 주문을 조회 합니다.
@@ -39,7 +36,6 @@ RequestBody
 ```
 
 ## 실행 방법
-<hr />
 
 1. Axon Server실행
 2. Application실행
