@@ -1,6 +1,7 @@
-package com.axon.order.query;
+package com.axon.order.query.handler;
 
 import com.axon.order.entity.ProductEntity;
+import com.axon.order.query.GetProductsQuery;
 import com.axon.order.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.axonframework.queryhandling.QueryHandler;
