@@ -10,7 +10,25 @@
 3. 주문을 하면 product에서 개수를 차감 하고
 4. 개수가 부족하면 주문 상태를 CANCELED로 바꾸는 기능
 
-## API
+## 1. Axon Server실행
+
+이 프로젝트를 실행 하려면 Axon Server를 먼저 실행 해야 합니다.
+
+아래와 같이 Docker를 이용해 실행 할 수 있습니다.
+```
+$ docker run -d --name my-axon-server -p 8024:8024 -p 8124:8124 axoniq/axonserver
+```
+
+Docker없이 .jar을 다운받아서 바로 실행 할 수 있습니다.
+
+https://download.axoniq.io/axonserver/AxonServer.zip
+
+```
+$ java -jar axonserver.jar
+```
+
+
+## 2. API
 1. GET /product - 등록한 제품(product)을 조회합니다.
 
 2. GET /order - 등록한 주문을 조회 합니다.
