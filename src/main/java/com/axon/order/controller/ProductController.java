@@ -17,6 +17,7 @@ import java.util.concurrent.ExecutionException;
 
 @RestController
 @RequestMapping("/api/v1/product")
+@CrossOrigin(origins = "*")
 public class ProductController {
 
     final ProductService productService;
