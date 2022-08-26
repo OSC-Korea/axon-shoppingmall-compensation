@@ -13,6 +13,7 @@ import java.util.concurrent.ExecutionException;
 
 @RestController
 @RequestMapping("/api/v1/order")
+@
 @AllArgsConstructor
 public class OrderController {
 
