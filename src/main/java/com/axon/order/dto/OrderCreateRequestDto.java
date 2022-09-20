@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @AllArgsConstructor
 @Getter
-public class OrderCreateDto {
+public class OrderCreateRequestDto {
 
     private String productId;
     private int quantity;

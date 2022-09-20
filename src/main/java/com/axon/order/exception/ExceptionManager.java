@@ -13,7 +13,15 @@ public class ExceptionManager {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<?> exceptionHandler(Exception ex, HttpServletRequest request) {
-        return ResponseEntity.status(HttpStatus.ACCEPTED).body(new ErrorMessage(LocalDateTime.now(),
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(
+                new ErrorMessage(LocalDateTime.now(),
                 ex.getMessage()));
+    }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<?> illegalArgumentExceptionHandler(Exception ex, HttpServletRequest request) {
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(
+                new ErrorMessage(LocalDateTime.now(),
+                        ex.getMessage()));
     }
 }

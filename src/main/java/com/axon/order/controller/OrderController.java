@@ -1,10 +1,11 @@
 package com.axon.order.controller;
 
-import com.axon.order.dto.OrderCreateDto;
+import com.axon.order.command.CreateOrderCommand;
+import com.axon.order.dto.OrderCreateRequestDto;
+import com.axon.order.dto.OrderCreateResponseDto;
 import com.axon.order.entity.OrderEntity;
 import com.axon.order.service.OrderService;
 import lombok.AllArgsConstructor;
-import org.axonframework.commandhandling.gateway.CommandGateway;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,9 +27,10 @@ public class OrderController {
     }
 
     @PostMapping(value = "/")
-    public ResponseEntity<String> createOrder(@RequestBody OrderCreateDto dto) {
+    public ResponseEntity<OrderCreateResponseDto> createOrder(@RequestBody OrderCreateRequestDto dto) {
 
-        orderService.createOrder(dto.getProductId(), dto.getQuantity());
-        return ResponseEntity.ok("POST");
+        Object createOrderCommand = orderService.createOrder(dto.getProductId(), dto.getQuantity());
+        OrderCreateResponseDto orderCreateResponseDto = new OrderCreateResponseDto(dto);
+        return ResponseEntity.ok(orderCreateResponseDto);
     }
 }
